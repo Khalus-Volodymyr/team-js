@@ -25,7 +25,6 @@ function findSmallerNumber(numbers) {
 
 // console.log(findSmallerNumber(numbers));
 
-
 /*
 Напишіть функцію caclculateAverage()
 яка приймає довільну кількість
@@ -34,19 +33,41 @@ function findSmallerNumber(numbers) {
 
 */
 
-const arr = [2, 6, 24, 7, 35, 24, "hello", 9, "world"];
+// const arr = [2, 6, 24, 7, 35, 24, "hello", 9, "world"];
 
-function caclculateAverage(...args) {
-  let sum = 0;
-  let count = 0;
-  for (const num of args) {
-    if (typeof num === "number") {
-      sum += num;
-      count += 1;
+// function caclculateAverage(...args) {
+//   let sum = 0;
+//   let count = 0;
+//   for (const num of args) {
+//     if (typeof num === "number") {
+//       sum += num;
+//       count += 1;
+//     }
+//   }
+//   return sum / count;
+// }
+
+// console.log(caclculateAverage(...arr));
+
+//Напишіть ф-цію calcTotalPrice(stones, stonesName),
+//яка приймає масив об'єктів і
+//Рядок з назвою каменю.
+//Функція повертає загальну вартість каменів
+//з ​​таким ім'ям, ціною та кількістю з об'єкта
+
+const stones = [
+  { name: "Смарагд", price: 1300, quantity: 4 },
+  { name: "Діамант", price: 2700, quantity: 6 },
+  { name: "Сапфір", price: 400, quantity: 7 },
+  { name: "Щебінь", price: 150, quantity: 100 },
+];
+
+function calcTotalPrice(stones, stonesName) {
+  for (const stone of stones) {
+    if (stone.name === stonesName) {
+      return `${stone.name} ${stone.quantity * stone.price}`;
     }
   }
-  return sum / count;
 }
 
-console.log(caclculateAverage(...arr));
-
+console.log(calcTotalPrice(stones, "Щебінь"));
