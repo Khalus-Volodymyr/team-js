@@ -3,7 +3,6 @@
 // Використовуйте цикл for...of, щоб згрупувати студентів за курсами.
 // Результатом буде об‘єкт, де ключами будуть назви курсів, а значення - масиви об’єктів студентів, що належать до відповідного курсу.
 
-
 // Очікуванний результат:
 // const groupedStudents = {
 //   Java: [
@@ -14,28 +13,26 @@
 //   JavaScript: [{ name: “Джон“, age: 23, course: “JavaScript” }],
 // };
 
-
- const students = [
-    { name: “Алиса“, age: 20, course: “Java” },
-    { name: “Боб“, age: 22, course: “Python” },
-    { name: “Карл“, age: 21, course: “Java” },
-     { name: “Джон“, age: 23, course: “JavaScript” },
- ];
-
+const students = [
+  { name: "Алиса", age: 20, course: "Java" },
+  { name: "Боб", age: 22, course: "Python" },
+  { name: "Карл", age: 21, course: "Java" },
+  { name: "Джон", age: 23, course: "JavaScript" },
+];
 
 function groupStudentsCourse() {
-     let groupedStudentsCourse = {};
-    for (const student of students) {
-        const course = student.course;
-        
-        if (!groupedStudentsCourse[course]) {
-            groupedStudentsCourse[course] = [];
-       }
-        groupedStudentsCourse[course].push(student)
-   }
-   return groupedStudentsCourse;
-};
- 
+  let groupedStudentsCourse = {};
+  for (const student of students) {
+    const course = student.course;
+
+    if (!groupedStudentsCourse[course]) {
+      groupedStudentsCourse[course] = [];
+    }
+    groupedStudentsCourse[course].push(student);
+  }
+  return groupedStudentsCourse;
+}
+
 console.log(groupStudentsCourse(students));
 
 //  1 ітерація
