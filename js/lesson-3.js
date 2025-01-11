@@ -101,8 +101,16 @@ const getUserNames = (users) => users.map((user) => user.name);
 // Отримати масив імен користувачів за статтю (поле gender)
 // [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
 
-function getUsersByGender(users, userGender) {
-  return users.filter(({ gender }) => gender === userGender).map(user => user.name);
-}
+// function getUsersByGender(users, userGender) {
+//   return users.filter(({ gender }) => gender === userGender).map(user => user.name);
+// }
 
-console.log(getUsersByGender(users, "male"));
+// console.log(getUsersByGender(users, "male"));
+
+
+// Отримати загальну суму балансу (поле balance) всіх користувачів.
+// console.log(calculateTotalBalance(users)); // 20916
+
+const calculateTotalBalance = users => users.reduce((total, user) => total += user.balance, 0)
+console.log(calculateTotalBalance(users)); // 20916
+
