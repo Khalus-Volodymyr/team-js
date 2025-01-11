@@ -124,3 +124,16 @@ const getUsersWithFriend = (users, friendName) =>
 
 console.log(getUsersWithFriend(users, "Briana Decker"));
 console.log(getUsersWithFriend(users, "Goldie Gentry"));
+
+// Отримати масив всіх умінь всіх користувачів (поле skills), при цьому не повинно бути
+// Уміння, що повторюються, і вони повинні бути відсортовані в алфавітному порядку.
+// console.log(getSortedUniqueSkills(users));
+// ['adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit' , 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam']
+
+//const getSortedUniqueSkills = (users) => users.flatMap((user) => user.skills);
+const getSortedUniqueSkills = (users) =>
+  users
+    .flatMap((user) => user.skills)
+    .filter((skill, index, arr) => arr.indexOf(skill) === index)
+    .toSorted();
+console.log(getSortedUniqueSkills(users));
