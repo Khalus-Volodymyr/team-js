@@ -111,7 +111,7 @@ const getUserNames = (users) => users.map((user) => user.name);
 
 const calculateTotalBalance = (users) =>
   users.reduce((total, user) => (total += user.balance), 0);
-console.log(calculateTotalBalance(users)); // 20916
+// console.log(calculateTotalBalance(users)); // 20916
 
 // / Масив імен всіх користувачів які мають один із зазначеним ім'ям.
 // console.log(getUsersWithFriend(users, 'Briana Decker'))); // [ 'Sharlene Bush', 'Sheree Anthony' ]
@@ -122,8 +122,8 @@ const getUsersWithFriend = (users, friendName) =>
     .filter((user) => user.friends.includes(friendName))
     .map((user) => user.name);
 
-console.log(getUsersWithFriend(users, "Briana Decker"));
-console.log(getUsersWithFriend(users, "Goldie Gentry"));
+// console.log(getUsersWithFriend(users, "Briana Decker"));
+// console.log(getUsersWithFriend(users, "Goldie Gentry"));
 
 // Отримати масив всіх умінь всіх користувачів (поле skills), при цьому не повинно бути
 // Уміння, що повторюються, і вони повинні бути відсортовані в алфавітному порядку.
@@ -136,4 +136,35 @@ const getSortedUniqueSkills = (users) =>
     .flatMap((user) => user.skills)
     .filter((skill, index, arr) => arr.indexOf(skill) === index)
     .toSorted();
-console.log(getSortedUniqueSkills(users));
+// console.log(getSortedUniqueSkills(users));
+
+
+
+// ! ----------------- PushEax ------------------------
+
+//Повернути об'єкт у якому вказується кількість тегів
+const tweets = [
+  { id: "000", likes: 5, tags: ["js", "nodejs"] },
+  { id: "001", likes: 2, tags: ["html", "css"] },
+  { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+  { id: "003", likes: 8, tags: ["css", "react"] },
+  { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+]
+
+
+function getTagsCount(tweets) {
+  return tweets.flatMap(tweet => tweet.tags).reduce((prev, cur) => ({
+    ...prev,
+    [cur]: prev[cur] ? prev[cur] + 1: 1,
+  }), {});
+  // return tweets.flatMap(tweet => tweet.tags).reduce((prev, cur, ind, arr) => {
+  //   if (!prev[cur]) {
+  //     prev[cur] = 1;
+  //   } else {
+  //     prev[cur] += 1;
+  //   }
+  //   return prev
+  // }, {})
+}
+
+console.log(getTagsCount(tweets));
