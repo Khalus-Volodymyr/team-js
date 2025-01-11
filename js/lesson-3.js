@@ -95,4 +95,14 @@ const users = [
 
 const getUserNames = (users) => users.map((user) => user.name);
 
-console.log(getUserNames(users));
+// console.log(getUserNames(users));
+
+
+// Отримати масив імен користувачів за статтю (поле gender)
+// [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
+
+function getUsersByGender(users, userGender) {
+  return users.filter(({ gender }) => gender === userGender).map(user => user.name);
+}
+
+console.log(getUsersByGender(users, "male"));
