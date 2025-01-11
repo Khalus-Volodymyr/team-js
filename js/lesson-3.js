@@ -167,7 +167,7 @@ const getSortedUniqueSkills = (users) =>
   //   }
   //   return prev
   // }, {})
-}
+// }
 
 // console.log(getTagsCount(tweets));
 
@@ -201,3 +201,52 @@ const getSortedUniqueSkills = (users) =>
 //     this.#login = newLogin;
 //   }
 // }
+
+
+
+// ! -------------------- PushEax -----------------------------
+
+// Напиши клас Notes який управляє колекцією нотаток у властивості items.
+//Нотатка це об'єкт із властивостями id, text і priority
+//Додай класу статичну властивість Priopity,
+//у якій зберігатиметься об'єкт із пріоритетами HIGHT, LOW.
+//Додай методи addNote(note), removeNote(id) //updatePriority(text, newPriority)
+// getNotes
+// #items
+
+class Notes {
+  #items = [];
+  static Priopity = { HIGHT: "hight", LOW: "low" };
+
+  addNote(note) {
+    this.#items.push(note);
+  }
+
+  removeNote(id) {
+    this.#items = this.#items.filter(note => note.id !== id)
+  }
+  
+  updatePriority(id, newPriority) {
+    this.#items.find(item => item.id === id).priority = newPriority;
+  }
+
+  getNotes() {
+    return this.#items;
+  }
+}
+
+const myNotes = new Notes();
+
+myNotes.addNote({
+  id: 1, text: "123", priority: Notes.Priopity.HIGHT,
+});
+myNotes.addNote({
+  id: 2, text: "321", priority: Notes.Priopity.LOW,
+});
+
+myNotes.updatePriority(1, Notes.Priopity.LOW);
+
+myNotes.removeNote(2);
+
+console.log(myNotes.getNotes());
+// {id, text, priority
