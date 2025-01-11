@@ -97,7 +97,6 @@ const getUserNames = (users) => users.map((user) => user.name);
 
 // console.log(getUserNames(users));
 
-
 // Отримати масив імен користувачів за статтю (поле gender)
 // [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
 
@@ -107,10 +106,21 @@ const getUserNames = (users) => users.map((user) => user.name);
 
 // console.log(getUsersByGender(users, "male"));
 
-
 // Отримати загальну суму балансу (поле balance) всіх користувачів.
 // console.log(calculateTotalBalance(users)); // 20916
 
-const calculateTotalBalance = users => users.reduce((total, user) => total += user.balance, 0)
+const calculateTotalBalance = (users) =>
+  users.reduce((total, user) => (total += user.balance), 0);
 console.log(calculateTotalBalance(users)); // 20916
 
+// / Масив імен всіх користувачів які мають один із зазначеним ім'ям.
+// console.log(getUsersWithFriend(users, 'Briana Decker'))); // [ 'Sharlene Bush', 'Sheree Anthony' ]
+// console.log(getUsersWithFriend(users, 'Goldie Gentry')); // [ 'Elma Head', 'Sheree Anthony' ]
+
+const getUsersWithFriend = (users, friendName) =>
+  users
+    .filter((user) => user.friends.includes(friendName))
+    .map((user) => user.name);
+
+console.log(getUsersWithFriend(users, "Briana Decker"));
+console.log(getUsersWithFriend(users, "Goldie Gentry"));
