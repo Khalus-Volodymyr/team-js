@@ -138,26 +138,28 @@ const getSortedUniqueSkills = (users) =>
     .toSorted();
 // console.log(getSortedUniqueSkills(users));
 
-
-
 // ! ----------------- PushEax ------------------------
 
 //Повернути об'єкт у якому вказується кількість тегів
-const tweets = [
-  { id: "000", likes: 5, tags: ["js", "nodejs"] },
-  { id: "001", likes: 2, tags: ["html", "css"] },
-  { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
-  { id: "003", likes: 8, tags: ["css", "react"] },
-  { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
-]
+// const tweets = [
+//   { id: "000", likes: 5, tags: ["js", "nodejs"] },
+//   { id: "001", likes: 2, tags: ["html", "css"] },
+//   { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+//   { id: "003", likes: 8, tags: ["css", "react"] },
+//   { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+// ];
 
-
-function getTagsCount(tweets) {
-  return tweets.flatMap(tweet => tweet.tags).reduce((prev, cur) => ({
-    ...prev,
-    [cur]: prev[cur] ? prev[cur] + 1: 1,
-  }), {});
-  // return tweets.flatMap(tweet => tweet.tags).reduce((prev, cur, ind, arr) => {
+// function getTagsCount(tweets) {
+//   return tweets
+//     .flatMap((tweet) => tweet.tags)
+//     .reduce(
+//       (prev, cur) => ({
+//         ...prev,
+//         [cur]: prev[cur] ? prev[cur] + 1 : 1,
+//       }),
+//       {}
+//     );
+//   // return tweets.flatMap(tweet => tweet.tags).reduce((prev, cur, ind, arr) => {
   //   if (!prev[cur]) {
   //     prev[cur] = 1;
   //   } else {
@@ -167,4 +169,35 @@ function getTagsCount(tweets) {
   // }, {})
 }
 
-console.log(getTagsCount(tweets));
+// console.log(getTagsCount(tweets));
+
+
+// ! ----------------- Maryna ------------------------
+
+// Напиши клас Client який створює об'єкт
+//з ​​властивостями login email
+//Оголоси приватні властивості #login #email,
+//доступ до яких зроби через геттер та сеттер login email
+
+// class Client {
+//   #login;
+//   #email;
+//   constructor(email, login) {
+//     this.#email = email;
+//     this.#login = login;
+//   }
+//   get email() {
+//     return this.#email;
+//   }
+//   set email(newMail) {
+//     this.#email = newMail;
+//   }
+
+//   get login() {
+//     return this.#login;
+//   }
+
+//   set login(newLogin) {
+//     this.#login = newLogin;
+//   }
+// }
