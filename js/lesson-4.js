@@ -10,4 +10,24 @@ inputSecond = document.querySelector("#rightSwapInput");
 
 button.addEventListener("click", () => {
   [inputFirs.value, inputSecond.value] = [inputSecond.value, inputFirs.value];
-})
+});
+
+/*
+Завдання 3
+Кнопка "Приховати" ховає текст і замінює назву кнопки на
+"Розкрити", при повторному натисканні текст знову стає доступним
+і кнопка набуває початкового вигляду.
+*/
+
+const btnElem = document.querySelector("#passwordButton");
+const inpElem = document.querySelector("#passwordInput");
+
+btnElem.addEventListener("click", () => {
+  if (inpElem.getAttribute("type") !== "password") {
+    inpElem.setAttribute("type", "password");
+    btnElem.textContent = "Розкрити";
+  } else {
+    inpElem.setAttribute("type", "text");
+    btnElem.textContent = "Приховати";
+  }
+});
