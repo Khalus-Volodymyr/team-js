@@ -31,3 +31,28 @@ btnElem.addEventListener("click", () => {
     btnElem.textContent = "Приховати";
   }
 });
+
+// Кнопка "Зменшити" робить квадрат менше на 10 пікселів, кнопка "Збільшити" - більше на 10 пікселів.
+// https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle
+
+const btndecrease = document.querySelector("#decrease");
+const btnincrease = document.querySelector("#increase");
+
+const boxElem = document.querySelector("#box");
+btndecrease.addEventListener("click", () => {
+  let widthBox = parseInt(getComputedStyle(boxElem).width);
+  let heightBox = parseInt(getComputedStyle(boxElem).height);
+  widthBox -= 10;
+  heightBox -= 10;
+  boxElem.style.width = widthBox + "px";
+  boxElem.style.height = heightBox + "px";
+});
+
+btnincrease.addEventListener("click", () => {
+  let widthBox = parseInt(getComputedStyle(boxElem).width);
+  let heightBox = parseInt(getComputedStyle(boxElem).height);
+  widthBox += 10;
+  heightBox += 10;
+  boxElem.style.width = widthBox + "px";
+  boxElem.style.height = heightBox + "px";
+});

@@ -160,17 +160,16 @@ const getSortedUniqueSkills = (users) =>
 //       {}
 //     );
 //   // return tweets.flatMap(tweet => tweet.tags).reduce((prev, cur, ind, arr) => {
-  //   if (!prev[cur]) {
-  //     prev[cur] = 1;
-  //   } else {
-  //     prev[cur] += 1;
-  //   }
-  //   return prev
-  // }, {})
+//   if (!prev[cur]) {
+//     prev[cur] = 1;
+//   } else {
+//     prev[cur] += 1;
+//   }
+//   return prev
+// }, {})
 // }
 
 // console.log(getTagsCount(tweets));
-
 
 // ! ----------------- Maryna ------------------------
 
@@ -202,8 +201,6 @@ const getSortedUniqueSkills = (users) =>
 //   }
 // }
 
-
-
 // ! -------------------- PushEax -----------------------------
 
 // Напиши клас Notes який управляє колекцією нотаток у властивості items.
@@ -223,11 +220,11 @@ class Notes {
   }
 
   removeNote(id) {
-    this.#items = this.#items.filter(note => note.id !== id)
+    this.#items = this.#items.filter((note) => note.id !== id);
   }
-  
+
   updatePriority(id, newPriority) {
-    this.#items.find(item => item.id === id).priority = newPriority;
+    this.#items.find((item) => item.id === id).priority = newPriority;
   }
 
   getNotes() {
@@ -238,10 +235,14 @@ class Notes {
 const myNotes = new Notes();
 
 myNotes.addNote({
-  id: 1, text: "123", priority: Notes.Priopity.HIGHT,
+  id: 1,
+  text: "123",
+  priority: Notes.Priopity.HIGHT,
 });
 myNotes.addNote({
-  id: 2, text: "321", priority: Notes.Priopity.LOW,
+  id: 2,
+  text: "321",
+  priority: Notes.Priopity.LOW,
 });
 
 myNotes.updatePriority(1, Notes.Priopity.LOW);
