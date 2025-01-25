@@ -4,11 +4,11 @@
 Ви можете натиснути на неї кілька разів або вручну змінити вміст інпутів.
 */
 
-button = document.querySelector("#swapButton");
-inputFirs = document.querySelector("#leftSwapInput");
-inputSecond = document.querySelector("#rightSwapInput");
+button = document.querySelector('#swapButton');
+inputFirs = document.querySelector('#leftSwapInput');
+inputSecond = document.querySelector('#rightSwapInput');
 
-button.addEventListener("click", () => {
+button.addEventListener('click', () => {
   [inputFirs.value, inputSecond.value] = [inputSecond.value, inputFirs.value];
 });
 
@@ -19,40 +19,64 @@ button.addEventListener("click", () => {
 і кнопка набуває початкового вигляду.
 */
 
-const btnElem = document.querySelector("#passwordButton");
-const inpElem = document.querySelector("#passwordInput");
+const btnElem = document.querySelector('#passwordButton');
+const inpElem = document.querySelector('#passwordInput');
 
-btnElem.addEventListener("click", () => {
-  if (inpElem.getAttribute("type") !== "password") {
-    inpElem.setAttribute("type", "password");
-    btnElem.textContent = "Розкрити";
+btnElem.addEventListener('click', () => {
+  if (inpElem.getAttribute('type') !== 'password') {
+    inpElem.setAttribute('type', 'password');
+    btnElem.textContent = 'Розкрити';
   } else {
-    inpElem.setAttribute("type", "text");
-    btnElem.textContent = "Приховати";
+    inpElem.setAttribute('type', 'text');
+    btnElem.textContent = 'Приховати';
   }
 });
 
 // Кнопка "Зменшити" робить квадрат менше на 10 пікселів, кнопка "Збільшити" - більше на 10 пікселів.
 // https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle
 
-const btndecrease = document.querySelector("#decrease");
-const btnincrease = document.querySelector("#increase");
+const btndecrease = document.querySelector('#decrease');
+const btnincrease = document.querySelector('#increase');
 
-const boxElem = document.querySelector("#box");
-btndecrease.addEventListener("click", () => {
+const boxElem = document.querySelector('#box');
+btndecrease.addEventListener('click', () => {
   let widthBox = parseInt(getComputedStyle(boxElem).width);
   let heightBox = parseInt(getComputedStyle(boxElem).height);
   widthBox -= 10;
   heightBox -= 10;
-  boxElem.style.width = widthBox + "px";
-  boxElem.style.height = heightBox + "px";
+  boxElem.style.width = widthBox + 'px';
+  boxElem.style.height = heightBox + 'px';
 });
 
-btnincrease.addEventListener("click", () => {
+btnincrease.addEventListener('click', () => {
   let widthBox = parseInt(getComputedStyle(boxElem).width);
   let heightBox = parseInt(getComputedStyle(boxElem).height);
   widthBox += 10;
   heightBox += 10;
-  boxElem.style.width = widthBox + "px";
-  boxElem.style.height = heightBox + "px";
+  boxElem.style.width = widthBox + 'px';
+  boxElem.style.height = heightBox + 'px';
+});
+
+// ! ----------------------------  PushEax -------------------
+
+const circle = document.querySelector('.outerCircle');
+
+let isClicked = false;
+
+const circleHandler = event => {
+  circle.style.left = event.pageX - 20 + 'px';
+  circle.style.top = event.pageY - 20 + 'px';
+  console.log('Hello');
+};
+
+circle.addEventListener('click', event => {
+  if (!isClicked) {
+    isClicked = true;
+    circle.style.position = 'absolute';
+    window.addEventListener('mousemove', circleHandler);
+  } else {
+    isClicked = false;
+    circle.style.position = 'static';
+    window.removeEventListener('mousemove', circleHandler);
+  }
 });
